@@ -11,7 +11,7 @@ let eu
 
 rodadas = +prompt('Quantas rodadas você deseja jogar?');
 
-while (isNaN(rodadas) /*&& rodadas != Number.isInteger(rodadas)*/) {
+while (isNaN(rodadas) || rodadas <= 0) {
     rodadas = +prompt('Insira um valor numerico: ');
 }
 console.log(rodadas);

@@ -16,7 +16,7 @@ Inicio: for (let i = 0; i < inicio; i++) {
   console.log("Quantas rodadas você deseja jogar?");
   rodadas = +prompt();
   while (
-    (isNaN(rodadas) || rodadas != Number.isInteger(rodadas)) &&
+    (isNaN(rodadas) && rodadas != Number.isInteger(rodadas)) ||
     rodadas <= 0
   ) {
     rodadas = +prompt("Insira um valor numerico: ");
@@ -29,13 +29,10 @@ Inicio: for (let i = 0; i < inicio; i++) {
     console.log("Digite apenas numeros ");
     escolhaN = +prompt();
 
-    while (
-      ((isNaN(escolhaN) || escolhaN != Number.isInteger(escolhaN)) &&
-        escolhaN < -1) ||
-      escolhaN >= 3
-    ) {
+    while (isNaN(escolhaN)  || escolhaN < 0 || escolhaN > 2 ) {
       escolhaN = +prompt("Insira um valor numerico de 0 a 2: ");
       console.log();
+      
     }
 
     pc = Math.floor(Math.random() * 3);
@@ -68,10 +65,9 @@ Inicio: for (let i = 0; i < inicio; i++) {
       console.log("Empate ninguem pontua!!");
       console.log();
     }
-    
   }
   console.log("-------------------Placar------------------");
-    console.log(`Você  ${pontEu}  X  ${pontPc}  Computador`);
+  console.log(`Você  ${pontEu}  X  ${pontPc}  Computador`);
 
   if (pontEu > pontPc) {
     console.log("PRABENS VOCÊ É O GANHADOR !!!");
@@ -84,6 +80,8 @@ Inicio: for (let i = 0; i < inicio; i++) {
       console.log();
     }
     if (resp === "SIM") {
+      pontEu = 0;
+      pontPc = 0;
       inicio++;
       continue Inicio;
     } else {
@@ -100,6 +98,8 @@ Inicio: for (let i = 0; i < inicio; i++) {
       console.log();
     }
     if (resp === "SIM") {
+      pontEu = 0;
+      pontPc = 0;
       inicio++;
       continue Inicio;
     } else {
